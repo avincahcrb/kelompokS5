@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selamat Datang</title>
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/kegiatan.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-color: #f3f3f3;
+      transition: opacity 0.5s ease-in-out;
+      opacity: 0;
+    }
+
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+    .oi {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1515' height='966' preserveAspectRatio='none' viewBox='0 0 1515 966'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1870%26quot%3b)' fill='none'%3e%3crect width='1515' height='966' x='0' y='0' fill='rgba(143, 255, 153, 1)'%3e%3c/rect%3e%3cpath d='M1263.7559747439325 644.2477083905718L1505.927629093948 618.7944418570897 1480.474362560466 376.6227875070742 1238.3027082104504 402.0760540405563z' fill='rgba(96%2c 76%2c 195%2c 1)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1430.9026037152457 295.6906922487041L1605.194325322529 72.60746161693595 1382.1110946907609-101.68425999034736 1207.8193730834776 121.39897064142079z' fill='rgba(96%2c 76%2c 195%2c 1)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M866.4270935194356 162.5496305497139L990.8960150042243 68.7555706529247 897.1019551074352-55.713350831864005 772.6330336226464 38.0807090649252z' fill='rgba(96%2c 76%2c 195%2c 1)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M312.1264208704878 323.4419930725177L133.31495723565305 307.7980170959916 117.67098125912699 486.60948073082636 296.4824448939617 502.25345670735237z' fill='rgba(96%2c 76%2c 195%2c 1)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1144.9480907560412 151.51708021870195L1190.8173066630463 351.06593232764465 1323.8299699178494 231.3007923901933z' fill='rgba(96%2c 76%2c 195%2c 1)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M282.5531863275756 725.2918418789411L282.2950790489439 996.1223014952537 489.3600041098849 881.3443392955849z' fill='rgba(96%2c 76%2c 195%2c 1)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M643.5226954311563 700.5316007535969L706.2045865526991 873.2606931919033 811.5854486945236 752.0338786582358z' fill='rgba(96%2c 76%2c 195%2c 1)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M38.826%2c191.494C85.502%2c192.136%2c131.117%2c173.178%2c155.997%2c133.681C182.566%2c91.502%2c185.994%2c38.569%2c163.025%2c-5.674C138.125%2c-53.638%2c92.788%2c-94.969%2c38.826%2c-92.021C-12.005%2c-89.244%2c-41.063%2c-38.774%2c-63.902%2c6.722C-83.799%2c46.358%2c-94.445%2c91.771%2c-72.894%2c130.533C-50.8%2c170.273%2c-6.639%2c190.869%2c38.826%2c191.494' fill='rgba(96%2c 76%2c 195%2c 1)' class='triangle-float3'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1870'%3e%3crect width='1515' height='966' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
+    }
+    .button {
+      border-radius: 30px;
+    }
+    .text {
+      font-style: italic;
+      color: rgb(61, 32, 158);
+      padding: 30px;
+      padding-left: 20%;
+      padding-right: 20%;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    }
+  </style>
+  <body>
+    <div
+      class="slide active oi animate__animated animate__fadeInDown"
+      id="slide1"
+    >
+      <div class="row">
+        <center>
+          <lord-icon
+            src="https://cdn.lordicon.com/rnvjhobj.json"
+            trigger="loop"
+            delay="2000"
+            colors="primary:#604cc3,secondary:#fff,tertiary:#ebe6ef,quaternary:#3a3347,quinary:#3a3347"
+            style="width: 250px; height: 250px"
+          >
+          </lord-icon>
+        </center>
+        <h3 class="text">Selamat datang di website kelompok kami</h3>
+        <h4 class="text">
+          Kami adalah sekelompok individu yang berdedikasi untuk mencapai
+          keunggulan dalam hal apapun. Bersama-sama, kami berusaha menciptakan
+          solusi inovatif yang dapat membawa perubahan positif.
+        </h4>
+      </div>
+    </div>
+    <div class="slide oi animate__animated animate__fadeInRight" id="slide2">
+      <!-- carousel -->
+      <div class="carousel">
+        <!-- list item -->
+        <div class="list">
+          <div class="item">
+            <img src="gambar/kegiatan1.jpg" />
+            <div class="content">
+              <div class="author">Kelompok 5</div>
+              <div class="title">Tema UI/UX</div>
+              <div class="topic">Diskusi</div>
+              <div class="des">
+                Tugas dalam mengerjakan UI/UX melibatkan serangkaian kegiatan
+                yang terstruktur dan iteratif untuk menciptakan antarmuka
+                pengguna yang efektif dan pengalaman pengguna yang memuaskan.
+                Proses ini dimulai dengan penelitian pengguna untuk memahami
+                kebutuhan dan perilaku mereka, dilanjutkan dengan ideasi dan
+                pembuatan wireframe serta prototipe untuk menguji konsep desain.
+                Desain visual yang detail kemudian dikembangkan dan diuji dengan
+                pengguna nyata untuk mengidentifikasi dan memperbaiki masalah.
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="gambar/kegiatan2.jpg" />
+            <div class="content">
+              <div class="author">Kelompok 5</div>
+              <div class="title">Tema UI/UX</div>
+              <div class="topic">Membuat web profil</div>
+              <div class="des">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
+                sequi, rem magnam nesciunt minima placeat, itaque eum neque
+                officiis unde, eaque optio ratione aliquid assumenda facere ab
+                et quasi ducimus aut doloribus non numquam. Explicabo,
+                laboriosam nisi reprehenderit tempora at laborum natus unde. Ut,
+                exercitationem eum aperiam illo illum laudantium?
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- list thumnail -->
+        <div class="thumbnail">
+          <div class="item">
+            <img src="gambar/kegiatan1.jpg" />
+            <div class="content">
+              <div class="title">Name Slider</div>
+              <div class="description">Description</div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="gambar/kegiatan2.jpg" />
+            <div class="content">
+              <div class="title">Name Slider</div>
+              <div class="description">Description</div>
+            </div>
+          </div>
+        </div>
+        <div class="arrows">
+          <button id="prev"><</button>
+          <button id="next">></button>
+        </div>
+        <div class="time"></div>
+      </div>
+    </div>
+    <div class="slide animate__animated animate__fadeInLeft" id="slide3">
+      <div class="flex-container">
+        <div class="flex-slide home">
+          <div class="flex-title flex-title-home">Avin</div>
+          <div class="flex-about flex-about-home">
+            <p>
+              Nama Saya Muhammad Avin Maulana, Saya lahir dan besar di kota
+              Cirebon, Saat ini saya sedang menempuh pendidikan perguruan tinggi
+              di STMIK IKMI kota Cirebon dengan mengambil prodi Rekayasa
+              Perangkat Lunak.
+            </p>
+            <a
+              href="https://avincahcrb.github.io/Profil_Avin/"
+              class="btn btn-outline-info button"
+              >Cek Profil</a
+            >
+          </div>
+        </div>
+        <div class="flex-slide about">
+          <div class="flex-title">Abdul</div>
+          <div class="flex-about">
+            <p>
+              I am an active student at STMIK IKMI Cirebon. I have good
+              analytical skills and commitment to continue learning and
+              developing, my activities on campus involve programming, design,
+              and data analysis.
+            </p>
+            <a
+              href="https://afz0812.github.io/WEB_CV/"
+              class="btn btn-outline-info button"
+              >Cek Profil</a
+            >
+          </div>
+        </div>
+        <div class="flex-slide work">
+          <div class="flex-title">Riyan</div>
+          <div class="flex-about">
+            <p>
+              Saya adalah seorang mahasiswa aktif semester 5 dengan jurusan
+              Rekayasa Perangkat Lunak di STMIK IKMI Cirebon, Saya memiliki
+              kemampuan dalam pengembangan website menggunakan bahasa
+              pemrograman seperti HTML, CSS, JavaScript dan PHP.
+            </p>
+            <a
+              href="https://riyandev10.github.io/profileRiyan/"
+              class="btn btn-outline-info button"
+              style="margin-left: 75%"
+              >Cek Profil</a
+            >
+          </div>
+        </div>
+        <div class="flex-slide contact">
+          <div class="flex-title">Eti</div>
+          <div class="flex-about">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
+              eius quasi et iusto dicta perspiciatis inventore molestias nemo
+              quam temporibus, aliquid deleniti necessitatibus animi delectus
+              nobis voluptates sed. Numquam, non.
+            </p>
+            <button class="btn btn-outline-info button">Cek Profil</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="menu">
+      <input
+        type="checkbox"
+        href="#"
+        class="menu-open"
+        name="menu-open"
+        id="menu-open"
+      />
+      <label class="menu-open-button" for="menu-open">
+        <span class="hamburger hamburger-1"></span>
+        <span class="hamburger hamburger-2"></span>
+        <span class="hamburger hamburger-3"></span>
+      </label>
+      <a onclick="showSlide('slide1')" class="menu-item">
+        <i class="bi bi-house" title="home"></i>
+      </a>
+      <a class="menu-item"> <i class="bi bi-people"></i> </a>
+      <a onclick="showSlide('slide2')" href="#" class="menu-item">
+        <i class="bi bi-image" title="Gambar"></i>
+      </a>
+      <a href="#" class="menu-item"> <i class="fa fa-cog"></i> </a>
+      <a onclick="showSlide('slide3')" href="#" class="menu-item">
+        <i class="bi bi-people" title="Anggota"></i>
+      </a>
+    </nav>
+
+    <!-- filters -->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <defs>
+        <filter id="shadowed-goo">
+          <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+            result="goo"
+          />
+          <feGaussianBlur in="goo" stdDeviation="3" result="shadow" />
+          <feColorMatrix
+            in="shadow"
+            mode="matrix"
+            values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2"
+            result="shadow"
+          />
+          <feOffset in="shadow" dx="1" dy="1" result="shadow" />
+          <feComposite in2="shadow" in="goo" result="goo" />
+          <feComposite in2="goo" in="SourceGraphic" result="mix" />
+        </filter>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+            result="goo"
+          />
+          <feComposite in2="goo" in="SourceGraphic" result="mix" />
+        </filter>
+      </defs>
+    </svg>
+  </body>
+  <script>
+    function showSlide(slideId) {
+      let slides = document.getElementsByClassName("slide");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+      }
+      document.getElementById(slideId).classList.add("active");
+    }
+
+    // Default: Show the first slide
+    showSlide("slide1");
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/jquery.waitforimages.min.js"></script>
+  <script src="js/javascript.js"></script>
+  <script src="js/kegiatan.js"></script>
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+</html>
